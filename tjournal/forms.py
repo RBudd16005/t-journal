@@ -25,7 +25,7 @@ class ReportForm(forms.Form):
     )
     start = forms.TimeField(
         label="When did you begin trading? ",
-        widget=forms.TimeInput(attrs={'value': datetime.time(9, 0, 0)})
+        widget=forms.TimeInput(attrs={'value': datetime.time(9, 30, 0)})
     )
     rules = forms.BooleanField(label="Did you follow your trading rules? ", required=False)
     money = forms.DecimalField(
