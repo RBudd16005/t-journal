@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,20 +6,21 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {% include './css/css.html' %}
-        {% include './css/bootstrap_defaults.html' %}
-
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
         <title>T-Journal</title>
     </head>
-    <body>
-        
-        <div class='container'>
-            <div class="row">
-                <div class="col-sm-12">
-                    <a href="../" id="Logo">T</a>
+    <body style="background-color: darkslategray;">
+        <div>
+            <div>
+                <div id="header">
+                    <a href="../" id="logo" id>T</a>
+                    <span>
+                        <img src="{% static 'img/header.jpg' %}" height="80px" width="85%">
+                    </span>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-12">
+            <div style="background-color: white; padding: 50px;">
+                <div>
                     {% block content %}
                     {% endblock %}
                 </div>
@@ -30,5 +32,7 @@
                 {% block jquery %}{% endblock %}
             })
         </script>
+        <div style="background-color: rgb(126, 189, 0); padding: 25px;">
+        </div>
     </body>
 </html>

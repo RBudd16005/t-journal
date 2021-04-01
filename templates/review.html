@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+ <script>
+    {% block jquery %}
+          $.ajax({
+            method: "GET",
+            url: '../data',
+            success: function(reports_json){
+              var reports = reports_json;
+              var label_list = [];
+              var money_list = [];
+              var score_list = [];
+
+              for (i = 0; i < reports.length; i++) {
+                label_list.push(reports[i].fields.date);
+                money_list.push(reports[i].fields.money);
+                var total = 0;
+                if (reports[i].fields.breakfast) {
+                  total += 10;
+                }
+                if (reports[i].fields.healthy) {
+                  total += 10;
+                }
+                if (reports[i].fields.shower) {
+                  total += 10;
+                }
+                if (reports[i].fields.shower) {
+                  total += 10;
+                }
+                if (reports[i].fields.exercise) {
+                  total += 10;
+                }
+                if (reports[i].fields.sleep >= 6 && reports[i].fields.sleep <= 7) {
+                  total += 5;
+                } else if (reports[i].fields.sleep > 7) {
+                  total += 10;
+                }
+                if (reports[i].fields.clothes == "Professional") {
+                  total += 10;
+                } else {
+                  total += 5;
+                }
+                if (reports[i].fields.start == "09:00:00") {
+                  total += 15;
+                  console.log("hello");
+                } else {
+                  total += 5;
+                }
+                if (reports[i].fields.rules){
+                  total += 15;
+                }
+                score_list.push(total);
+              }
+
+              var ctx = document.getElementById('myChart').getContext('2d');
+          var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+              datasets: [{
+                label: 'Money Earned/Lost',
+                data: money_list,
+                backgroundColor: ['rgba(122, 244, 0, 0.2)'],
+                borderColor: ['rgba(122, 244, 0, 1)'],
+                borderWidth: 1
+              },
+              { 
+                label: 'Health Score',
+                data: score_list,
+                backgroundColor: [r='rgba(6, 123, 212, 0.2)'],
+                borderColor: ['rgba(6, 123, 212, 1)'],
+                borderWidth: 1
+              }],
+              labels: label_list
+            },
+            options: {
+              scales: {
+                yAxes: [{
+                  ticks: {
+                    beginAtZero: true
+                  }
+                }]
+              }
+            }
+          });
+            }
+          });    
+    {% endblock %}
+  </script>
+
+  {% block content %}
+    <h3>Review</h3>
+    <canvas id="myChart" width="400" height="400"></canvas>
+  {% endblock %}

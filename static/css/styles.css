@@ -1,0 +1,36 @@
+#header{
+    background-color: black;
+}
+
+#logo {
+    font-size: 80px;
+    font-family: sans-serif;
+    color: white;
+    padding: 15px;
+}
+
+.button_main {
+    width: 250px;
+    height: 25px;
+    padding: 15px 15px 35px 15px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin: 15px 0px 15px 35%;
+}
+
+.button_confirm {
+    width: 250px;
+    height: 25px;
+    padding: 15px 15px 15px 15px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin: 15px 15px 15px 15px;
+}

@@ -11,7 +11,7 @@ CLOTHING_CHOICES = [
 
 class ReportForm(forms.Form):
     date = forms.DateField(
-        label="Date: ",
+        label="Date",
         widget=forms.DateInput(attrs={'value': datetime.date.today()})
     )
     breakfast = forms.BooleanField(label="Did you eat breakfast? ", required=False)
